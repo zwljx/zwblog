@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Category: React - zwblog</title>
+    <title>React笔记二：登录与权限 - zwblog</title>
   
+    <meta name="keywords" content="React">
+  
+  
+    <meta name="description" content="登录">
   
 
   <!-- feed -->
@@ -295,27 +297,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -325,11 +312,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
+  <h1 class="title">
     <a href="/2020/05/22/react-two/">
       React笔记二：登录与权限
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -398,226 +385,206 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/05/22/react-two/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><a id="more"></a>
+
+<ol>
+<li><p>页面-账号密码输入框、登录按钮：采用Form表单：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Button,Form,Input&#125; from &#39;antd&#39;;</span><br><span class="line"></span><br><span class="line">const layout &#x3D; &#123;</span><br><span class="line">	labelCol: &#123; span: 8 &#125;,</span><br><span class="line">	wrapperCol: &#123; span: 16 &#125;,</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">&lt;Form</span><br><span class="line">             &#123;...layout&#125;</span><br><span class="line">             name&#x3D;&quot;basic&quot;</span><br><span class="line">             initialValues&#x3D;&#123;&#123; remember: true &#125;&#125;</span><br><span class="line">             onFinish&#x3D;&#123;this.onFinish&#125;</span><br><span class="line">             onFinishFailed&#x3D;&#123;this.onFinishFailed&#125;</span><br><span class="line">         &gt;</span><br><span class="line">             &lt;Form.Item</span><br><span class="line">		label&#x3D;&quot;Username&quot;</span><br><span class="line">		name&#x3D;&quot;username&quot;</span><br><span class="line">		rules&#x3D;&#123;[&#123; required: true, message: &#39;Please input your username!&#39; &#125;]&#125;</span><br><span class="line">             &gt;</span><br><span class="line">                 &lt;Input &#x2F;&gt;</span><br><span class="line">             &lt;&#x2F;Form.Item&gt;</span><br><span class="line"></span><br><span class="line">             &lt;Form.Item</span><br><span class="line">                 label&#x3D;&quot;Password&quot;</span><br><span class="line">		name&#x3D;&quot;password&quot;</span><br><span class="line">		rules&#x3D;&#123;[&#123; required: true, message: &#39;Please input your password!&#39; &#125;]&#125;</span><br><span class="line">	&gt;</span><br><span class="line">		&lt;Input.Password &#x2F;&gt;</span><br><span class="line">	&lt;&#x2F;Form.Item&gt;</span><br><span class="line"></span><br><span class="line">	&lt;Form.Item &#123;...tailLayout&#125;&gt;</span><br><span class="line">		&lt;Button type&#x3D;&quot;primary&quot; htmlType&#x3D;&quot;submit&quot;&gt;</span><br><span class="line">				Login</span><br><span class="line">		&lt;&#x2F;Button&gt;</span><br><span class="line">	&lt;&#x2F;Form.Item&gt;</span><br><span class="line">&lt;&#x2F;Form&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>登录验证及cookie操作</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">onFinish &#x3D; (values) &#x3D;&gt;&#123;</span><br><span class="line">       console.log(values);</span><br><span class="line">       let url &#x3D; &quot;http:&#x2F;&#x2F;***.***.com&#x2F;login&quot;;</span><br><span class="line">       fetch(url, &#123;</span><br><span class="line">           method: &#39;POST&#39;,</span><br><span class="line">           headers: &#123;</span><br><span class="line">               &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;,</span><br><span class="line">               &#39;Access-Control-Allow-Methods&#39;:&#39;POST, GET, OPTIONS, DELETE, PUT&#39;,</span><br><span class="line">               &#39;Access-Control-Allow-Credentials&#39;:&#39;true&#39;,</span><br><span class="line">               &#39;Accept&#39;: &#39;application&#x2F;json&#39;,</span><br><span class="line">               &#39;Content-Type&#39;: &#39;application&#x2F;json;charset&#x3D;utf-8&#39;,</span><br><span class="line">               &#39;mode&#39;:&#39;no-cors&#39;,</span><br><span class="line">               &#39;Access-Control-Allow-Headers&#39;:&#39;Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,Token,x-access-token&#39;,</span><br><span class="line">           &#125;,</span><br><span class="line">           credentials: &#39;include&#39;,</span><br><span class="line">           body: JSON.stringify(values),</span><br><span class="line">       &#125;).then(response &#x3D;&gt; response.json())</span><br><span class="line">           .then(responseJson &#x3D;&gt; &#123;</span><br><span class="line">               &#x2F;&#x2F;处理登录请求结果</span><br><span class="line">               if (responseJson.code &#x3D;&#x3D;&#x3D; &quot;0&quot;) &#123;</span><br><span class="line">                   &#x2F;&#x2F;cookie有效期1个小时</span><br><span class="line">                   cookie.save(&#39;user&#39;, values.username,&#123;path:&quot;&#x2F;&quot;,maxAge:3600&#125;);</span><br><span class="line">                   message.success(&quot;login success&quot;);</span><br><span class="line">                   this.props.history.push(&#39;&#x2F;home&#39;, null);</span><br><span class="line">               &#125;else &#123;</span><br><span class="line">                   message.error(&quot;login failed&quot;);</span><br><span class="line">               &#125;</span><br><span class="line">               console.log(responseJson);</span><br><span class="line">           &#125;).catch(function (e) &#123;</span><br><span class="line">           console.log(&quot;Oops, error&quot;);</span><br><span class="line">           message.error(&quot;login failed&quot;)</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   onFinishFailed &#x3D; (errorInfo ) &#x3D;&gt;&#123;</span><br><span class="line">       console.log(&#39;Failed:&#39;, errorInfo);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>登录态失效判断及跳转</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentWillMount()&#123;</span><br><span class="line">       console.log(&quot;user &#x3D; &quot; + cookie.load(&quot;user&quot;));</span><br><span class="line">       if (cookie.load(&quot;user&quot;) &#x3D;&#x3D;&#x3D; undefined || cookie.load(&quot;user&quot;) &#x3D;&#x3D;&#x3D; null) &#123;</span><br><span class="line">           this.props.history.push(&#39;&#x2F;login&#39;, null);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>页面跳转失效处理：</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123;withRouter&#125; from &#39;react-router-dom&#39;; </span><br><span class="line">class HomePage extends Component&#123;&#125; </span><br><span class="line">export default withRouter(HomePage);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ol>
+<li>根据cookie中存储的用户信息，判断是否对页面上某些元素可见 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let hasPermission &#x3D; this.hasPermission(cookie.load(&quot;user&quot;));</span><br><span class="line">hasPermission &#x3D; (user) &#x3D;&gt; &#123;</span><br><span class="line">      if (user &#x3D;&#x3D;&#x3D; &quot;admin&quot;)&#123;</span><br><span class="line">          return true;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          return false;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#123;hasCallPermission?&lt;div&gt;……&lt;&#x2F;div&gt;:null&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
         </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/05/20/react_one/">
-      React笔记一：工具与三方库
-    </a>
-  </h2>
 
 
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://zwljx.github.io" rel="nofollow">
-    <img src="pic/timg.jpg">
-    <p>zw</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/React/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>React</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T10:13:31+08:00">
   <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 20, 2020</p>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 22, 2020</p>
   </a>
 </div>
 
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>200 words</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
-    </a>
-  </div>
-
-
-            
-          
-        </div>
         
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="js工具"><a href="#js工具" class="headerlink" title="js工具"></a>js工具</h2>
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/React/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>React</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://zwljx.github.io/2020/05/22/react-two/&title=React笔记二：登录与权限 - zwblog&summary=登录"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zwljx.github.io/2020/05/22/react-two/&title=React笔记二：登录与权限 - zwblog&summary=登录"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://zwljx.github.io/2020/05/22/react-two/&title=React笔记二：登录与权限 - zwblog&summary=登录"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
       
     </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/05/20/react_one/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
   </section>
-</article>
 
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/05/22/git/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Git知识点总结</p>
+                <p class='content'>
+初级
+
+
+
+
+工作流working directory是操作目录staging area是暂存区，用来保存变化repository是仓库，保存作为一个版本的变化
+
+基础命令git initgi...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/05/20/react_one/'>
+                <p class='title'>React笔记一：工具与三方库<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>js工具
+
+
+JSON  String转json对象：JSON.parse()  json对象转json String：JSON.stringify()
+时间格式转换12let sdate &#...</p>
+              </a>
+            
           </div>
         
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
       
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
 
   
 
 
-    
-  
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'React笔记二：登录与权限',
+      tools: true
+    }
+  </script>
+
 
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='pic/timg.jpg'/>
-        </a>
-      
-    
-    
-    
-  </div>
-</section>
-
-  
 
   
     
     
-  
 
-  <section class="widget category shadow desktop">
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Git/" href="/categories/Git/"
-            id="categoriesGit"
-            ><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/React/" href="/categories/React/"
-            id="categoriesReact"
-            ><div class='name'>React</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限"><span class="toc-text">权限</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/React/" style="font-size: 24px; color: #555">React</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -804,6 +771,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
