@@ -16,14 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Git知识点总结 - zwblog</title>
+    <title>TestNG-DataProvider-1 - zwblog</title>
   
-    <meta name="keywords" content="Git">
+    <meta name="keywords" content="TestNG">
   
   
-    <meta name="description" content="
-初级
-">
+    <meta name="description" content="自定义excel格式参数化文件处理工具类-POI库，支持高版本">
   
 
   <!-- feed -->
@@ -315,8 +313,8 @@
         
           
   <h1 class="title">
-    <a href="/2020/05/22/git/">
-      Git知识点总结
+    <a href="/2020/05/22/TestNG-DataProvider1/">
+      TestNG-DataProvider-1
     </a>
   </h1>
 
@@ -341,9 +339,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Git/' rel="nofollow">
+    <a href='/categories/TestNG/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Git</p>
+      <p>TestNG</p>
     </a>
   </div>
 
@@ -365,13 +363,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.2k words</p>
+      <p>665 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>4 min</p>
+      <p>3 min</p>
     </a>
   </div>
 
@@ -390,59 +388,13 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <ul>
-<li>初级</li>
-</ul>
-<a id="more"></a>
+          <h2 id="自定义excel格式参数化文件处理工具类-POI库，支持高版本"><a href="#自定义excel格式参数化文件处理工具类-POI库，支持高版本" class="headerlink" title="自定义excel格式参数化文件处理工具类-POI库，支持高版本"></a>自定义excel格式参数化文件处理工具类-POI库，支持高版本</h2><a id="more"></a>
 
-<ol>
-<li><p>工作流<br><img src="/pic/git.jpg" alt="工作流"><br>working directory是操作目录<br>staging area是暂存区，用来保存变化<br>repository是仓库，保存作为一个版本的变化</p>
-</li>
-<li><p>基础命令<br>git init<br>git status<br>git diff<br>git log<br>git reflog<br>git add [. | filenames]<br>git commit -m “message &lt;=50 characters”</p>
-</li>
-<li><p>HEAD<br>HEAD:当前所在版本<br>HEAD^:上一个版本<br>HEAD~n:上n个版本<br>SHA：40 characters 唯一标识取至少7位</p>
-</li>
-</ol>
 <ul>
-<li>中级</li>
+<li>工具类实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">	public class ExcelDataNew &#123;</span><br><span class="line">    public Workbook workbook;</span><br><span class="line">    public Sheet sheet;</span><br><span class="line">    public Cell cell;</span><br><span class="line">    int rows;</span><br><span class="line">    int columns;</span><br><span class="line">    public String fileName; &#x2F;&#x2F;区别于ExcelData，该fileName需要带后缀</span><br><span class="line">    public String caseName;</span><br><span class="line">    public ArrayList&lt;String&gt; arrkey &#x3D; new ArrayList&lt;String&gt;();</span><br><span class="line">    String sourceFile;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @param fileName   excel文件名</span><br><span class="line">     * @param caseName   sheet名</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public ExcelDataNew(String fileName, String caseName) &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.fileName &#x3D; fileName;</span><br><span class="line">        this.caseName &#x3D; caseName;</span><br><span class="line">        setWorkbook();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 判断，设置workbook</span><br><span class="line">     * xls格式的需要使用HSSFWorkbook类来解析，xlsx格式的需要使用XSSFWorkbook格式来解析</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public void setWorkbook()&#123;</span><br><span class="line">        if(this.fileName &#x3D;&#x3D; null)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        String extString &#x3D; fileName.substring(fileName.lastIndexOf(&quot;.&quot;));</span><br><span class="line">        InputStream is &#x3D; null;</span><br><span class="line">        try &#123;</span><br><span class="line">            is &#x3D; new FileInputStream(getPath());</span><br><span class="line">            if(&quot;.xls&quot;.equals(extString))&#123;</span><br><span class="line">                this.workbook &#x3D; new HSSFWorkbook(is);</span><br><span class="line">            &#125;else if(&quot;.xlsx&quot;.equals(extString))&#123;</span><br><span class="line">                this.workbook &#x3D; new XSSFWorkbook(is);</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">        &#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 获取cell中的值，转换为String类型</span><br><span class="line">     * @param cell</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public static String getCellFormatValue(Cell cell) &#123;</span><br><span class="line">        String cellValue &#x3D; &quot;&quot;;</span><br><span class="line">        if (cell !&#x3D; null) &#123;</span><br><span class="line">            &#x2F;&#x2F;判断cell类型</span><br><span class="line">            switch (cell.getCellType()) &#123;</span><br><span class="line">                case Cell.CELL_TYPE_NUMERIC: &#123;</span><br><span class="line">                    cellValue &#x3D; String.valueOf(cell.getNumericCellValue());</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                case Cell.CELL_TYPE_STRING: &#123;</span><br><span class="line">                    cellValue &#x3D; cell.getRichStringCellValue().getString();</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                default:</span><br><span class="line">                    cellValue &#x3D; &quot;&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return cellValue;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 获得excel表中的数据</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Object[][] getExcelData() throws BiffException, IOException &#123;</span><br><span class="line">        this.sheet &#x3D; workbook.getSheet(caseName);</span><br><span class="line">        this.rows &#x3D; sheet.getPhysicalNumberOfRows();</span><br><span class="line">        this.columns &#x3D; sheet.getRow(0).getPhysicalNumberOfCells();</span><br><span class="line">        &#x2F;&#x2F; 为了返回值是Object[][],定义一个多行单列的二维数组</span><br><span class="line">        HashMap&lt;String, String&gt;[][] arrmap &#x3D; new HashMap[rows - 1][1];</span><br><span class="line">        &#x2F;&#x2F; 对数组中所有元素hashmap进行初始化</span><br><span class="line">        if (rows &gt; 1) &#123;</span><br><span class="line">            for (int i &#x3D; 0; i &lt; rows - 1; i++) &#123;</span><br><span class="line">                arrmap[i][0] &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            System.out.println(&quot;excel中没有数据&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        &#x2F;&#x2F; 获得首行的列名，作为hashmap的key值</span><br><span class="line">        Row rowHead &#x3D; sheet.getRow(0);</span><br><span class="line">        for (int c &#x3D; 0; c &lt; columns; c++) &#123;</span><br><span class="line">            String cellvalue &#x3D; getCellFormatValue(rowHead.getCell(c));</span><br><span class="line">            arrkey.add(cellvalue);</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 遍历所有的单元格的值添加到hashmap中</span><br><span class="line">        for (int r &#x3D; 1; r &lt; rows; r++) &#123;</span><br><span class="line">            Row row &#x3D; sheet.getRow(r);</span><br><span class="line">            for (int c &#x3D; 0; c &lt; columns; c++) &#123;</span><br><span class="line">                String cellvalue &#x3D; getCellFormatValue(row.getCell(c));</span><br><span class="line">                arrmap[r - 1][0].put(arrkey.get(c), cellvalue);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return arrmap;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 获得excel文件的路径</span><br><span class="line">     * @return</span><br><span class="line">     * @throws IOException</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public String getPath() throws IOException &#123;</span><br><span class="line">        File directory &#x3D; new File(&quot;.&quot;);</span><br><span class="line">        sourceFile &#x3D; directory.getCanonicalPath() + &quot;\\src\\main\\resources\\data\\&quot;</span><br><span class="line">                + fileName;</span><br><span class="line">        return sourceFile;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>使用</li>
 </ul>
-<ol>
-<li><p>分支<br>git branch 当前分支<br>git branch new_branch 新建分支<br>git checkout branch_name 切换分支<br>git merge branch_name(提供者分支名称) 合并到当前分支<br>git branch -d branch_name 删除分支<br>注：若有冲突conflict，需要手动修改，再add、 commit</p>
-</li>
-<li><p>teamwork<br>git clone remote_location(from) clone_name(to)克隆远端的仓库到本地<br>git remote -v 查看远端仓库的版本信息<br>git fetch 查看远端修改（这个操作只是合并到了本地的origin/master,不是本地的local/master）<br>git push your_branch_name 上传到远端<br>注：<br>origin/master 标志远端HEAD的位置<br>git fetch区别于git pull：fetch不会自动merge，pull会自动merge。fetch更安全<br>使用Github需要先fork到自己的账号下，再从自己的账号下clone，才可以提交修改</p>
-</li>
-<li><p>工作流程<br>一般的使用git来做版本控制的工作流程如下：<br>①fetch and merge （=pull）<br>②创建新分支来开发新的功能<br>③开发、commit<br>④fetch and merge<br>⑤push your branch to remote</p>
-</li>
-</ol>
-<ul>
-<li>高级</li>
-</ul>
-<ol>
-<li><p>reset和checkout<br>这是与回退相关的两个常用命令，到底什么时候该用哪个命令，具体用法和区别如下：</p>
-<ol>
-<li><p>reset命令一般用于版本回退：注意不只是可以做仓库的版本回退。使用如下：<br>命令格式：git reset [- -参数] [commit-id] [filename]<br>hard：HEAD INDEX WORKING都改变<br>mixed：HEAD INDEX改变（默认）<br>soft: HEAD改变<br>加文件名代表只有该文件做回退，不加代表所有文件均回退</p>
-</li>
-<li><p>checkout有两个作用：切换分支和撤销修改（指修改工作区，仓库的版本都还存在）<br>撤销修改：<br>①git checkout - -[.|filename]<br>若add过，回到add之后的状态。若没有add过，回到上一次commit<br>②工作区内容回到上一次或者上n次的版本<br>git checkout commit-id filename 或者 先reset在checkout - -</p>
-</li>
-<li><p>两种方式的对比：<br>前者容易误操作，但是保留了该文件工作区目标版本之后的几个版本。后者不容易误操作，但是几个版本会丢失。</p>
-</li>
-<li><p>关于前者的误操作和解决方式：<br>filename是必须加的，若不加，该命令将使HEAD指针不再指向最新的版本，而是处于游离状态。解决方法是：checkout到master分支，但若目前已有修改无法切换到master分支。则新建temp分支，commit再合并到master分支，然后删除temp分支。可以将HEAD指针回到最新版本的位置。</p>
-</li>
-</ol>
-</li>
-<li><p>git stash<br>当前分支工作未完成，不能commit，但是要切换到其他分支去工作。问题是：不commit修改无法切换到其他分支。因此要用到stash。<br>git stash 备份<br>git stash pop 读取并恢复（pop命令之后不再有，apply之后还有）<br>git stash list<br>git stash clear 清空<br>git stash apply [stash @{1}]<br>git stash drop [&lt; stash &gt;]删除某进度，默认最新<br>注：不能保存untracked files，需要加-u参数</p>
-</li>
-<li><p>github的使用（摘了网上的）<br>配置Git</p>
-<ol>
-<li><p>首先在本地创建ssh key；<br>ssh-keygen -t rsa -C “<code>your_email@youremail.com</code>”<br>后面的<code>your_email@youremail.com</code>改为你在github上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在~/下生成.ssh文件夹，进去，打开id_rsa.pub，复制里面的key。<br>回到github上，进入 Account Settings（账户配置），左边选择SSH Keys，Add SSH Key,title随便填，粘贴在你电脑上生成的key。<br>github-account<br>为了验证是否成功，在git bash下输入：<br>ssh -T <code>git@github.com</code><br>如果是第一次的会提示是否continue，输入yes就会看到：You’ve successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上github。</p>
-</li>
-<li><p>把本地仓库传到github上去，在此之前还需要设置username和email，因为github每次commit都会记录他们。<br>git config –global user.name “your name”<br>git config –global user.email “<code>your_email@youremail.com</code>”<br>进入要上传的仓库，右键git bash，添加远程地址：<br>git remote add origin <code>git@github.com:yourName/yourRepo.git</code><br>后面的yourName和yourRepo表示你再github的用户名和刚才新建的仓库，加完之后进入.git，打开config，这里会多出一个remote “origin”内容，这就是刚才添加的远程地址，也可以直接修改config来配置远程地址。</p>
-</li>
-<li><p>创建新文件夹，打开，然后执行 git init 以创建新的 git 仓库。<br>检出仓库<br>执行如下命令以创建一个本地仓库的克隆版本：<br>git clone /path/to/repository<br>如果是远端服务器上的仓库，你的命令会是这个样子：<br>git clone username@host:/path/to/repository</p>
-</li>
-</ol>
-</li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	public class ExcelDataproviderTest &#123;</span><br><span class="line"> </span><br><span class="line">    @DataProvider(name &#x3D; &quot;num&quot;)</span><br><span class="line">    public Object[][] Numbers() throws BiffException, IOException &#123;</span><br><span class="line">        ExcelDataNew data &#x3D; new ExcelDataNew(&quot;testexcel.xlsx&quot;, &quot;test&quot;);</span><br><span class="line">        return data.getExcelData();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Test(priority &#x3D; 1, dataProvider &#x3D; &quot;num&quot;)</span><br><span class="line">    public void test(HashMap&lt;String, String&gt; data) &#123;</span><br><span class="line">        System.out.println(data.toString());</span><br><span class="line">        int num1 &#x3D; Integer.parseInt(data.get(&quot;num1&quot;));</span><br><span class="line">        int num2 &#x3D; Integer.parseInt(data.get(&quot;num2&quot;));</span><br><span class="line">        int result &#x3D; Integer.parseInt(data.get(&quot;result&quot;));</span><br><span class="line">        Assert.assertEquals(num1 + num2, result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         </div>
@@ -454,7 +406,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T11:05:37+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T11:22:19+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 22, 2020</p>
@@ -466,7 +418,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Git/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Git</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/TestNG/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>TestNG</p></a></div>
 
 
         
@@ -479,9 +431,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://zwljx.github.io/2020/05/22/git/&title=Git知识点总结 - zwblog&summary=
-初级
-"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://zwljx.github.io/2020/05/22/TestNG-DataProvider1/&title=TestNG-DataProvider-1 - zwblog&summary=自定义excel格式参数化文件处理工具类-POI库，支持高版本"
           
           >
           
@@ -493,9 +443,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zwljx.github.io/2020/05/22/git/&title=Git知识点总结 - zwblog&summary=
-初级
-"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zwljx.github.io/2020/05/22/TestNG-DataProvider1/&title=TestNG-DataProvider-1 - zwblog&summary=自定义excel格式参数化文件处理工具类-POI库，支持高版本"
           
           >
           
@@ -507,9 +455,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://zwljx.github.io/2020/05/22/git/&title=Git知识点总结 - zwblog&summary=
-初级
-"
+          href="http://service.weibo.com/share/share.php?url=https://zwljx.github.io/2020/05/22/TestNG-DataProvider1/&title=TestNG-DataProvider-1 - zwblog&summary=自定义excel格式参数化文件处理工具类-POI库，支持高版本"
           
           >
           
@@ -533,24 +479,24 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/2020/05/22/TestNG-ExtendReports/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>TestNG-生成自定义格式报告</p>
+              <a class='prev' href='/2020/05/22/TestNG-DataProvider2/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>TestNG-DataProvider2</p>
+                <p class='content'>自定义txt格式参数化文件处理工具类
+
+
+工具类实现
+1234567891011121314151617181920212223242526272829303132333435363738394...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/05/22/TestNG-ExtendReports/'>
+                <p class='title'>TestNG-生成自定义格式报告<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>
 继承IReporter实现自定义报告
 
 
 
 12345678910111213141516171819202122232425262728293031323334353637383940414...</p>
-              </a>
-            
-            
-              <a class='next' href='/2020/05/22/react-two/'>
-                <p class='title'>React笔记二：登录与权限<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>登录
-
-
-页面-账号密码输入框、登录按钮：采用Form表单：
- 123456789101112131415161718192021222324252627282930313233343536im...</p>
               </a>
             
           </div>
@@ -595,7 +541,7 @@
 
   <script>
     window.subData = {
-      title: 'Git知识点总结',
+      title: 'TestNG-DataProvider-1',
       tools: true
     }
   </script>
@@ -610,6 +556,20 @@
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义excel格式参数化文件处理工具类-POI库，支持高版本"><span class="toc-text">自定义excel格式参数化文件处理工具类-POI库，支持高版本</span></a></li></ol>
+    </div>
+  </section>
 
 
   

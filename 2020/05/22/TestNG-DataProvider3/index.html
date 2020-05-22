@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: React - zwblog</title>
+    <title>TestNG-DataProvider3 - zwblog</title>
   
+    <meta name="keywords" content="TestNG">
+  
+  
+    <meta name="description" content="自定义mysql格式参数化文件处理工具类">
   
 
   <!-- feed -->
@@ -295,27 +297,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -325,11 +312,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/05/22/react-two/">
-      React笔记二：登录与权限
+  <h1 class="title">
+    <a href="/2020/05/22/TestNG-DataProvider3/">
+      TestNG-DataProvider3
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -352,9 +339,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/React/' rel="nofollow">
+    <a href='/categories/TestNG/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>React</p>
+      <p>TestNG</p>
     </a>
   </div>
 
@@ -376,13 +363,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>591 words</p>
+      <p>464 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>3 min</p>
+      <p>2 min</p>
     </a>
   </div>
 
@@ -398,230 +385,184 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/05/22/react-two/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="自定义mysql格式参数化文件处理工具类"><a href="#自定义mysql格式参数化文件处理工具类" class="headerlink" title="自定义mysql格式参数化文件处理工具类"></a>自定义mysql格式参数化文件处理工具类</h2><a id="more"></a>
+
+<ul>
+<li><p>工具类实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">	public class MysqlData &#123;</span><br><span class="line">    int rows;</span><br><span class="line">    int columns;</span><br><span class="line">    Connection connection;</span><br><span class="line">    Statement statement;</span><br><span class="line"> </span><br><span class="line">    public MysqlData(String ip, String port, String databaseName, String userName, String password) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);&#x2F;&#x2F;加载数据库驱动</span><br><span class="line">            String url &#x3D; &quot;jdbc:mysql:&#x2F;&#x2F;&quot; + ip + &quot;:&quot; + port + &quot;&#x2F;&quot; + databaseName;&#x2F;&#x2F;数据库连接子协议</span><br><span class="line">            System.out.println(url);</span><br><span class="line">            this.connection &#x3D; DriverManager.getConnection(url, userName, password);</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 通过传入的sql语句获取参数</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Object[][] getMysqlDataBySQL(String sql)&#123;</span><br><span class="line">        HashMap&lt;String, String&gt;[][] arrmap &#x3D; null;</span><br><span class="line">        &#x2F;&#x2F;获取创建语句对象</span><br><span class="line">        try &#123;</span><br><span class="line">            this.statement &#x3D; connection.createStatement();</span><br><span class="line">            &#x2F;&#x2F;执行sql语句，获取查询结果集</span><br><span class="line">            ResultSet result &#x3D; statement.executeQuery(sql);</span><br><span class="line">            &#x2F;&#x2F;获取总行数</span><br><span class="line">            this.rows &#x3D; 0;</span><br><span class="line">            while(result.next()) &#123;</span><br><span class="line">                rows++;</span><br><span class="line">            &#125;</span><br><span class="line">            result.beforeFirst();</span><br><span class="line">            &#x2F;&#x2F;获取总列数</span><br><span class="line">            ResultSetMetaData rd &#x3D; result.getMetaData();</span><br><span class="line">            this.columns &#x3D; rd.getColumnCount();</span><br><span class="line">            &#x2F;&#x2F; 为了返回值是Object[][],定义一个多行单列的二维数组</span><br><span class="line">            arrmap &#x3D; new HashMap[rows][1];</span><br><span class="line">            if (rows &gt; 1) &#123;</span><br><span class="line">                for (int i &#x3D; 0; i &lt; rows; i++) &#123;</span><br><span class="line">                    arrmap[i][0] &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                System.out.println(&quot;sql查询结果集合中没有数据&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F;循环每行</span><br><span class="line">            int r &#x3D; 0;</span><br><span class="line">            while (result.next()) &#123;</span><br><span class="line">                &#x2F;&#x2F;循环每列，如果不要id，则i设为2</span><br><span class="line">                for (int i &#x3D; 1; i &lt;&#x3D; columns; i++) &#123;</span><br><span class="line">                    String key &#x3D; result.getMetaData().getColumnName(i);</span><br><span class="line">                    String value &#x3D; result.getString(i);</span><br><span class="line">                    arrmap[r][0].put(key, value);</span><br><span class="line">                &#125;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">        &#125; catch (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        return arrmap;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">	public class MySQLDataProviderTest &#123;</span><br><span class="line"> </span><br><span class="line">    @DataProvider(name &#x3D; &quot;num&quot;)</span><br><span class="line">    public Object[][] Numbers() throws BiffException, IOException &#123;</span><br><span class="line">        String ip &#x3D; &quot;&quot;;</span><br><span class="line">        String port &#x3D; &quot;&quot;;</span><br><span class="line">        String databaseName &#x3D; &quot;&quot;;</span><br><span class="line">        String user &#x3D; &quot;&quot;;</span><br><span class="line">        String password &#x3D; &quot;&quot;;</span><br><span class="line">        MysqlData mysqlData &#x3D; new MysqlData(ip,port,databaseName,user,password);</span><br><span class="line">        String sql &#x3D; &quot;SELECT * FROM PHONE&quot;;</span><br><span class="line">        return mysqlData.getMysqlDataBySQL(sql);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Test(priority &#x3D; 1, dataProvider &#x3D; &quot;num&quot;)</span><br><span class="line">    public void test(HashMap&lt;String, String&gt; data)&#123;</span><br><span class="line">        System.out.println(data.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
         </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/05/20/react_one/">
-      React笔记一：工具与三方库
-    </a>
-  </h2>
 
 
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://zwljx.github.io" rel="nofollow">
-    <img src="pic/timg.jpg">
-    <p>zw</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/React/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>React</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T11:26:20+08:00">
   <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 20, 2020</p>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 22, 2020</p>
   </a>
 </div>
 
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>200 words</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
-    </a>
-  </div>
-
-
-            
-          
-        </div>
         
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="js工具"><a href="#js工具" class="headerlink" title="js工具"></a>js工具</h2>
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/TestNG/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>TestNG</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://zwljx.github.io/2020/05/22/TestNG-DataProvider3/&title=TestNG-DataProvider3 - zwblog&summary=自定义mysql格式参数化文件处理工具类"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zwljx.github.io/2020/05/22/TestNG-DataProvider3/&title=TestNG-DataProvider3 - zwblog&summary=自定义mysql格式参数化文件处理工具类"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://zwljx.github.io/2020/05/22/TestNG-DataProvider3/&title=TestNG-DataProvider3 - zwblog&summary=自定义mysql格式参数化文件处理工具类"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
       
     </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/05/20/react_one/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
   </section>
-</article>
 
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/05/22/TestNG-DataProvider2/'>
+                <p class='title'>TestNG-DataProvider2<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>自定义txt格式参数化文件处理工具类
+
+
+工具类实现
+1234567891011121314151617181920212223242526272829303132333435363738394...</p>
+              </a>
+            
           </div>
         
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
       
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
 
   
 
 
-    
-  
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'TestNG-DataProvider3',
+      tools: true
+    }
+  </script>
+
+
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='pic/timg.jpg'/>
-        </a>
-      
-    
-    
-    
-  </div>
-</section>
-
-  
 
   
     
     
-  
 
-  <section class="widget category shadow desktop">
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Git/" href="/categories/Git/"
-            id="categoriesGit"
-            ><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/React/" href="/categories/React/"
-            id="categoriesReact"
-            ><div class='name'>React</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/TestNG/" href="/categories/TestNG/"
-            id="categoriesTestNG"
-            ><div class='name'>TestNG</div><div class='badge'>(4)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义mysql格式参数化文件处理工具类"><span class="toc-text">自定义mysql格式参数化文件处理工具类</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/React/" style="font-size: 19px; color: #777">React</a> <a href="/tags/TestNG/" style="font-size: 24px; color: #555">TestNG</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -808,6 +749,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
