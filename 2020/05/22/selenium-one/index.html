@@ -365,13 +365,13 @@ selenium Java maven依赖
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>170 words</p>
+      <p>358 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>2 min</p>
     </a>
   </div>
 
@@ -398,10 +398,169 @@ selenium Java maven依赖
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.seleniumhq.selenium&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;selenium-java&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;2.44.0&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>selenum 启动firefox浏览器注意事项<ol>
+<li><p>selenum 启动firefox浏览器注意事项</p>
+<ol>
 <li>selenium启动Firefox，不需要额外的driver</li>
 <li>如果没有安装到默认路径C盘，需要设置路径<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;webdriver.firefox.bin&quot;,&quot;D:&#x2F;……&#x2F;Mozilla Firefox&#x2F;firefox.exe&quot;);</span><br><span class="line">WebDriver driver &#x3D; new FirefoxDriver();</span><br></pre></td></tr></table></figure></li>
 <li>firefox的版本与selenium的版本对应关系<br>【Selenium】    -&gt; 【FireFox】<br>2.25.0        -&gt;  18<br>2.30.0        -&gt;  19<br>2.31.0        -&gt;  20<br>2.42.2        -&gt;  29<br>2.44.0        -&gt;  33 (不支持31)<br>2.53.0        -&gt;  43,46(不支持47)<br>2.41.0        -&gt;  26(绿色版本)<br>2.44          -&gt;  32.0-35.0</li>
+</ol>
+</li>
+<li><p>selenium 启动chrome浏览器</p>
+<ol>
+<li><p>chrome版本与chromedriver版本对应关系</p>
+<table>
+<thead>
+<tr>
+<th>ChromeDriver Version</th>
+<th>Chrome Version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>83.0.4103.39</td>
+<td>83</td>
+</tr>
+<tr>
+<td>83.0.4103.14</td>
+<td>83</td>
+</tr>
+<tr>
+<td>81.0.4044.138</td>
+<td>81</td>
+</tr>
+<tr>
+<td>81.0.4044.69</td>
+<td>81</td>
+</tr>
+<tr>
+<td>81.0.4044.20</td>
+<td>81</td>
+</tr>
+<tr>
+<td>80.0.3987.106</td>
+<td>80</td>
+</tr>
+<tr>
+<td>80.0.3987.16</td>
+<td>80</td>
+</tr>
+<tr>
+<td>79.0.3945.36</td>
+<td>79</td>
+</tr>
+<tr>
+<td>79.0.3945.16</td>
+<td>79</td>
+</tr>
+<tr>
+<td>78.0.3904.105</td>
+<td>78</td>
+</tr>
+<tr>
+<td>78.0.3904.70</td>
+<td>78</td>
+</tr>
+<tr>
+<td>78.0.3904.11</td>
+<td>78</td>
+</tr>
+<tr>
+<td>77.0.3865.40</td>
+<td>77</td>
+</tr>
+<tr>
+<td>77.0.3865.10</td>
+<td>77</td>
+</tr>
+<tr>
+<td>76.0.3809.126</td>
+<td>76</td>
+</tr>
+<tr>
+<td>76.0.3809.68</td>
+<td>76</td>
+</tr>
+<tr>
+<td>76.0.3809.25</td>
+<td>76</td>
+</tr>
+<tr>
+<td>76.0.3809.12</td>
+<td>76</td>
+</tr>
+<tr>
+<td>75.0.3770.90</td>
+<td>75</td>
+</tr>
+<tr>
+<td>75.0.3770.8</td>
+<td>75</td>
+</tr>
+<tr>
+<td>74.0.3729.6</td>
+<td>74</td>
+</tr>
+<tr>
+<td>73.0.3683.68</td>
+<td>73</td>
+</tr>
+<tr>
+<td>72.0.3626.69</td>
+<td>72</td>
+</tr>
+<tr>
+<td>2.46</td>
+<td>71-73</td>
+</tr>
+<tr>
+<td>2.46</td>
+<td>71-73</td>
+</tr>
+<tr>
+<td>2.45</td>
+<td>70-72</td>
+</tr>
+<tr>
+<td>2.44</td>
+<td>69-71</td>
+</tr>
+<tr>
+<td>2.43</td>
+<td>69-71</td>
+</tr>
+<tr>
+<td>2.42</td>
+<td>68-70</td>
+</tr>
+<tr>
+<td>2.41</td>
+<td>67-69</td>
+</tr>
+<tr>
+<td>2.40</td>
+<td>66-68</td>
+</tr>
+<tr>
+<td>2.39</td>
+<td>66-68</td>
+</tr>
+<tr>
+<td>2.38</td>
+<td>65-67</td>
+</tr>
+<tr>
+<td>2.37</td>
+<td>64-66</td>
+</tr>
+<tr>
+<td>2.36</td>
+<td>63-65</td>
+</tr>
+<tr>
+<td>2.35</td>
+<td>62-64</td>
+</tr>
+</tbody></table>
+</li>
 </ol>
 </li>
 </ul>
@@ -416,7 +575,7 @@ selenium Java maven依赖
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T15:47:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T16:22:27+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：May 22, 2020</p>
