@@ -363,7 +363,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>200 words</p>
+      <p>234 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -393,7 +393,10 @@
 <ul>
 <li>JSON<br>  String转json对象：<code>JSON.parse()</code><br>  json对象转json String：<code>JSON.stringify()</code></li>
 <li>时间格式转换<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sdate &#x3D; new Date(r.create_time).toJSON();</span><br><span class="line">let sdate2 &#x3D; new Date(+new Date(sdate) + 8 * 3600 * 1000).toISOString().replace(&#x2F;T&#x2F;g, &#39; &#39;).replace(&#x2F;\.[\d]&#123;3&#125;Z&#x2F;, &#39;&#39;);</span><br></pre></td></tr></table></figure></li>
-<li>百分比计算<br>  <code>Math.round(value/total*10000)/100.00</code></li>
+<li>百分比计算<br><code>Math.round(value/total*10000)/100.00</code></li>
+<li>base64转换<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let string &#x3D; window.atob(base64String);</span><br><span class="line">&#x2F;&#x2F;直接atob会乱码，以下两行解决乱码问题</span><br><span class="line">string &#x3D; escape(string);</span><br><span class="line">string &#x3D; decodeURIComponent(string);</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 <h2 id="实用三方库"><a href="#实用三方库" class="headerlink" title="实用三方库"></a>实用三方库</h2><ul>
 <li>json组件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import ReactJson from &#39;react-json-view&#39;;</span><br><span class="line">&lt;ReactJson src&#x3D;&#123;this.state.jsonSrc&#125; name&#x3D;&#123;null&#125;</span><br><span class="line">       iconStyle&#x3D;&quot;square&quot; collapseStringsAfterLength&#x3D;&#123;30&#125; displayDataTypes&#x3D;&#123;false&#125; collapsed&#x3D;&#123;false&#125;</span><br><span class="line">       style&#x3D;&#123;&#123;fontFamily:&#39;微软雅黑&#39;&#125;&#125;&#x2F;&gt;</span><br></pre></td></tr></table></figure></li>
@@ -411,10 +414,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-22T09:20:49+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T17:30:42+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 22, 2020</p>
+    <p>更新于：May 29, 2020</p>
   </a>
 </div>
 
@@ -729,8 +732,8 @@
           }
           shuffle(imgs);
         }
-        if ('.cover') {
-          $('.cover').backstretch(
+        if ('') {
+          $('').backstretch(
             imgs,
           {
             duration: "20000",
