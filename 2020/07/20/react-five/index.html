@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>Category: Selenium - zwblog</title>
+    <title>React笔记五：表格 - zwblog</title>
   
+    <meta name="keywords" content="React">
+  
+  
+    <meta name="description" content="表格Table">
   
 
   <!-- feed -->
@@ -295,25 +297,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -323,11 +312,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/05/22/selenium-one/">
-      selenium笔记一
+  <h1 class="title">
+    <a href="/2020/07/20/react-five/">
+      React笔记五：表格
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -350,9 +339,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Selenium/' rel="nofollow">
+    <a href='/categories/React/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Selenium</p>
+      <p>React</p>
     </a>
   </div>
 
@@ -363,7 +352,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 22, 2020</p>
+    <p>发布于：Jul 20, 2020</p>
   </a>
 </div>
 
@@ -374,7 +363,7 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>358 words</p>
+      <p>465 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -396,146 +385,179 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>selenium Java maven依赖</li>
-</ul>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/05/22/selenium-one/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h2 id="表格Table"><a href="#表格Table" class="headerlink" title="表格Table"></a>表格Table</h2><a id="more"></a>
 
-          </div>
+<h3 id="antdesign表格-（过滤器-自定义、固定，可选择）"><a href="#antdesign表格-（过滤器-自定义、固定，可选择）" class="headerlink" title="antdesign表格:（过滤器-自定义、固定，可选择）"></a>antdesign表格:（过滤器-自定义、固定，可选择）</h3><h4 id="固定过滤器"><a href="#固定过滤器" class="headerlink" title="固定过滤器"></a>固定过滤器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">filters: [</span><br><span class="line">	&#123; text: &#39;人脸&#39;, value: 1 &#125;,</span><br><span class="line">	&#123; text: &#39;营业执照&#39;, value: 2 &#125;,</span><br><span class="line">	&#123; text: &#39;身份证&#39;, value: 3 &#125;,</span><br><span class="line">	&#123; text: &#39;驾驶证&#39;, value: 4 &#125;,</span><br><span class="line">],</span><br><span class="line">onFilter: (value, record) &#x3D;&gt; record.type &#x3D;&#x3D;&#x3D; value,</span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">...this.getColumnSearchProps(&#39;name&#39;)</span><br><span class="line"></span><br><span class="line">getColumnSearchProps &#x3D; dataIndex &#x3D;&gt; (&#123;</span><br><span class="line">        filterDropdown: (&#123; setSelectedKeys, selectedKeys, confirm, clearFilters &#125;) &#x3D;&gt; (</span><br><span class="line">            &lt;div style&#x3D;&#123;&#123; padding: 8 &#125;&#125;&gt;</span><br><span class="line">                &lt;Input</span><br><span class="line">                    ref&#x3D;&#123;node &#x3D;&gt; &#123;</span><br><span class="line">                        this.searchInput &#x3D; node;</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                    placeholder&#x3D;&#123;&#96;Search $&#123;dataIndex&#125;&#96;&#125;</span><br><span class="line">                    value&#x3D;&#123;selectedKeys[0]&#125;</span><br><span class="line">                    onChange&#x3D;&#123;e &#x3D;&gt; setSelectedKeys(e.target.value ? [e.target.value] : [])&#125;</span><br><span class="line">                    onPressEnter&#x3D;&#123;() &#x3D;&gt; this.handleSearch(selectedKeys, confirm, dataIndex)&#125;</span><br><span class="line">                    style&#x3D;&#123;&#123; width: 188, marginBottom: 8, display: &#39;block&#39; &#125;&#125;</span><br><span class="line">                &#x2F;&gt;</span><br><span class="line">                &lt;Space&gt;</span><br><span class="line">                    &lt;Button</span><br><span class="line">                        type&#x3D;&quot;primary&quot;</span><br><span class="line">                        onClick&#x3D;&#123;() &#x3D;&gt; this.handleSearch(selectedKeys, confirm, dataIndex)&#125;</span><br><span class="line">                        icon&#x3D;&#123;&lt;SearchOutlined &#x2F;&gt;&#125;</span><br><span class="line">                        size&#x3D;&quot;small&quot;</span><br><span class="line">                        style&#x3D;&#123;&#123; width: 90 &#125;&#125;</span><br><span class="line">                    &gt;</span><br><span class="line">                        Search</span><br><span class="line">                    &lt;&#x2F;Button&gt;</span><br><span class="line">                    &lt;Button onClick&#x3D;&#123;() &#x3D;&gt; this.handleReset(clearFilters)&#125; size&#x3D;&quot;small&quot; style&#x3D;&#123;&#123; width: 90 &#125;&#125;&gt;</span><br><span class="line">                        Reset</span><br><span class="line">                    &lt;&#x2F;Button&gt;</span><br><span class="line">                &lt;&#x2F;Space&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        ),</span><br><span class="line">        filterIcon: filtered &#x3D;&gt; &lt;SearchOutlined style&#x3D;&#123;&#123; color: filtered ? &#39;#1890ff&#39; : undefined &#125;&#125; &#x2F;&gt;,</span><br><span class="line">        onFilter: (value, record) &#x3D;&gt;</span><br><span class="line">            record[dataIndex] ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()) : &#39;&#39;,</span><br><span class="line">        onFilterDropdownVisibleChange: visible &#x3D;&gt; &#123;</span><br><span class="line">            if (visible) &#123;</span><br><span class="line">                setTimeout(() &#x3D;&gt; this.searchInput.select());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        render: text &#x3D;&gt;</span><br><span class="line">            this.state.searchedColumn &#x3D;&#x3D;&#x3D; dataIndex ? (</span><br><span class="line">                &lt;Highlighter</span><br><span class="line">                    highlightStyle&#x3D;&#123;&#123; backgroundColor: &#39;#ffc069&#39;, padding: 0 &#125;&#125;</span><br><span class="line">                    searchWords&#x3D;&#123;[this.state.searchText]&#125;</span><br><span class="line">                    autoEscape</span><br><span class="line">                    textToHighlight&#x3D;&#123;text ? text.toString() : &#39;&#39;&#125;</span><br><span class="line">                &#x2F;&gt;</span><br><span class="line">            ) : (</span><br><span class="line">                text</span><br><span class="line">            ),</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="可选择"><a href="#可选择" class="headerlink" title="可选择"></a>可选择</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">   state &#x3D; &#123;</span><br><span class="line">       selectedRowKeys: [],</span><br><span class="line">   &#125;;</span><br><span class="line">onSelectChange &#x3D; selectedRowKeys &#x3D;&gt; &#123;</span><br><span class="line">       console.log(&#39;selectedRowKeys changed: &#39;, selectedRowKeys);</span><br><span class="line">       this.setState(&#123; selectedRowKeys &#125;);</span><br><span class="line">   &#125;;</span><br><span class="line">render()&#123;</span><br><span class="line">	let data &#x3D; [&#123;key:1……&#125;];&#x2F;&#x2F;data中必须有key，否则无法获得selectedRowKeys</span><br><span class="line">	let &#123;selectedRowKeys &#125; &#x3D; this.state;</span><br><span class="line"></span><br><span class="line">	const rowSelection &#x3D; &#123;</span><br><span class="line">		selectedRowKeys,</span><br><span class="line">		onChange: this.onSelectChange,</span><br><span class="line">	&#125;;</span><br><span class="line">	return(</span><br><span class="line">		&lt;Table rowSelection&#x3D;&#123;rowSelection&#125; columns&#x3D;&#123;columns&#125; dataSource&#x3D;&#123;data&#125; pagination&#x3D;&#123;&#123;pageSize:4&#125;&#125;&#x2F;&gt;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-20T18:37:35+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 20, 2020</p>
+  </a>
+</div>
+
         
       
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/React/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>React</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://zwljx.github.io/2020/07/20/react-five/&title=React笔记五：表格 - zwblog&summary=表格Table"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zwljx.github.io/2020/07/20/react-five/&title=React笔记五：表格 - zwblog&summary=表格Table"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://zwljx.github.io/2020/07/20/react-five/&title=React笔记五：表格 - zwblog&summary=表格Table"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
   </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/07/07/react-four/'>
+                <p class='title'>React笔记四：excel导出与导入<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>excel导出与导入
+
+工具类1234567891011121314151617181920212223242526272829303132333435363738394041424344454...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
   
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
 
   
 
 
-    
-  
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'React笔记五：表格',
+      tools: true
+    }
+  </script>
+
 
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='pic/timg.jpg'/>
-        </a>
-      
-    
-    
-    
-  </div>
-</section>
-
-  
 
   
     
     
-  
 
-  <section class="widget category shadow desktop">
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Git/" href="/categories/Git/"
-            id="categoriesGit"
-            ><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/React/" href="/categories/React/"
-            id="categoriesReact"
-            ><div class='name'>React</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Selenium/" href="/categories/Selenium/"
-            id="categoriesSelenium"
-            ><div class='name'>Selenium</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/TestNG/" href="/categories/TestNG/"
-            id="categoriesTestNG"
-            ><div class='name'>TestNG</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            id="categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/web/" href="/categories/web/"
-            id="categoriesweb"
-            ><div class='name'>web</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#表格Table"><span class="toc-text">表格Table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#antdesign表格-（过滤器-自定义、固定，可选择）"><span class="toc-text">antdesign表格:（过滤器-自定义、固定，可选择）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#固定过滤器"><span class="toc-text">固定过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义过滤器"><span class="toc-text">自定义过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可选择"><span class="toc-text">可选择</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Linux/" style="font-size: 14px; color: #999">Linux</a> <a href="/tags/React/" style="font-size: 24px; color: #555">React</a> <a href="/tags/Selenium/" style="font-size: 14px; color: #999">Selenium</a> <a href="/tags/TestNG/" style="font-size: 19px; color: #777">TestNG</a> <a href="/tags/java/" style="font-size: 14px; color: #999">java</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -722,6 +744,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
