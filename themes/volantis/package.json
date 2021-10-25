@@ -1,0 +1,58 @@
+{
+  "_from": "hexo-theme-volantis",
+  "_id": "hexo-theme-volantis@5.0.0-rc.1",
+  "_inBundle": false,
+  "_integrity": "sha1-NeBVSh3QjonFKQ9+imq5gaRmRfE=",
+  "_location": "/hexo-theme-volantis",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "hexo-theme-volantis",
+    "name": "hexo-theme-volantis",
+    "escapedName": "hexo-theme-volantis",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmmirror.com/hexo-theme-volantis/download/hexo-theme-volantis-5.0.0-rc.1.tgz",
+  "_shasum": "35e0554a1dd08e89c5290f7e8a6ab981a46645f1",
+  "_spec": "hexo-theme-volantis",
+  "_where": "C:\\hexo\\zwblog",
+  "author": {
+    "name": "Volantis X",
+    "url": "https://github.com/volantis-x/"
+  },
+  "bugs": {
+    "url": "https://github.com/volantis-x/hexo-theme-volantis/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Elegant and powerful theme for Hexo.",
+  "devDependencies": {
+    "hexo": "^5.4.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-stylus": "^2.0.1"
+  },
+  "homepage": "https://volantis.js.org",
+  "keywords": [
+    "hexo",
+    "theme",
+    "volantis"
+  ],
+  "license": "MIT",
+  "main": "package.json",
+  "name": "hexo-theme-volantis",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volantis-x/hexo-theme-volantis.git"
+  },
+  "scripts": {
+    "test": "echo test"
+  },
+  "version": "5.0.0-rc.1"
+}
